@@ -1,6 +1,4 @@
-# Speed_download_entire_sites
-
-# Welcome one and all. 
+# Welcome one and all
 
 # Do you need to recover from a borked website state? Has someone hacked you and left garbled content you don't recognize?
 # Do you need a simple way to recover as much of the content as possible?
