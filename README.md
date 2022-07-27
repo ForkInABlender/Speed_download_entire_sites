@@ -53,7 +53,7 @@ rm dupes.txt
 
 # What do I do to remove access to a part of the site like my custom search for my website?
 
-sed -zre 's/(<li id="menu-item-search" class="noMobile menu-item menu-item-search-dropdown menu-item-avia-special">.*?<\/li>)(<li class="av-burger-menu-main menu-item-avia-special ">)/<\!-- \1  -->\2/g' -i index.html
+sed -zre 's/(\<li id="menu-item-search" class="noMobile menu-item menu-item-search-dropdown menu-item-avia-special">.*?\<\/li>)(\<li class="av-burger-menu-main menu-item-avia-special "\>)/<\!-- \1  -->\2/g' -i index.html
 
 The first field is the html to look for, the second is the end tag to that search field. The second field in parentesis is the thing it ends near.
  The third part separates the first two parentesis into group 1 that is being commented out ("\1"). The group ("\2") is the second part that isn't getting commented out.
