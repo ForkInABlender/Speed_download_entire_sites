@@ -45,6 +45,9 @@ restanding up your website.
 Their shouldn't be much beyond that. 
 
 
+# How do I use your speedy_web_downloader.py file?
+
+tree -f -J . | grep "\.html" | python3 from_linux_json_tree.py | python3 speedy_web_downloader.py
 
 # what do I do if I have duplicates with a "html.1" extension?
 tree -f -J . | grep "\.html.1" | python3 from_linux_json_tree.py >> dupes.txt
