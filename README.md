@@ -29,7 +29,7 @@ It is recommended you do this from within the directory you downloaded the conte
 tree -f -J . | grep ":\\"file" | python3 from_linux_json_tree.py | python3 httrack_tmp_file_extension_excluder.py | python3 look_for_and_exclude_html_copy.py --output_dir=../website_recovered_data/
 
 # If you used "wget" to recursively get your web-content back:
-
+wget -r --continue --domains $DOMAIN https://$DOMAIN # DOMAIN=www.example.com
 tree -f -J . | grep ":\\"file" | python3 from_linux_json_tree.py | python3 look_for_and_exclude_html_copy.py --output_dir=../website_recovered_data/
 
 # And finally
@@ -43,3 +43,17 @@ Primarily, yes. Now their will be some link correction you'll have to do probabl
 restanding up your website.
 
 Their shouldn't be much beyond that. 
+
+
+
+# what do I do if I have duplicates with a "html.1" extension?
+tree -f -J . | grep "\.html.1" | python3 from_linux_json_tree.py >> dupes.txt
+rm $(cat dupes.txt)
+rm dupes.txt
+
+# What do I do to remove access to a part of the site like my custom search for my website?
+
+sed -zre 's/(<li id="menu-item-search" class="noMobile menu-item menu-item-search-dropdown menu-item-avia-special">.*?<\/li>)(<li class="av-burger-menu-main menu-item-avia-special ">)/<\!-- \1  -->\2/g' -i index.html
+
+The first field is the html to look for, the second is the end tag to that search field. The second field in parentesis is the thing it ends near.
+ The third part separates the first two parentesis into group 1 that is being commented out ("\1"). The group ("\2") is the second part that isn't getting commented out.
