@@ -54,6 +54,11 @@ tree -f -J . | grep "\.html.1" | python3 from_linux_json_tree.py >> dupes.txt
 rm $(cat dupes.txt)
 rm dupes.txt
 
+# What if that doesn't work to remove duplicates?
+
+{ rm $(tree -f -J ./ |  grep ":\"file" | python3 ~/Desktop/website_backup_for_robert/main.py | grep "\.html.") } without the brackets. You can also
+ replace the "\.html." extension search with one you suspect you have duplicates of. 
+
 # What do I do to remove access to a part of the site like my custom search for my website?
 
 sed -zre 's/(\<li id="menu-item-search" class="noMobile menu-item menu-item-search-dropdown menu-item-avia-special">.*?\<\/li>)(\<li class="av-burger-menu-main menu-item-avia-special "\>)/<\!-- \1  -->\2/g' -i index.html
