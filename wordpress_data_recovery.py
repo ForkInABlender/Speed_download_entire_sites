@@ -8,6 +8,8 @@ from time import sleep
 This code sifts through "wp-*" (wordpress) subdirectories and looks at the index.html, then gets the missing .js & puts it in the correct folder.
 It also gets the missing images that wordpress panels rely on.
 
+To use this you use the following command { tree -f -J wp-*/ |  grep ":\"file" | python3 from_linux_json_tree.py | python3 wordpress_data_recovery.py }
+ without the curly brackets.
 """
 
 
