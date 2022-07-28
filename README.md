@@ -29,7 +29,7 @@ It is recommended you do this from within the directory you downloaded the conte
 tree -f -J . | grep ":\\"file" | python3 from_linux_json_tree.py | python3 httrack_tmp_file_extension_excluder.py | python3 look_for_and_exclude_html_copy.py --output_dir=../website_recovered_data/
 
 # If you used "wget" to recursively get your web-content back:
-wget -r --continue --domains $DOMAIN https://$DOMAIN # DOMAIN=www.example.com
+wget -r --continue --domains $DOMAIN https://$DOMAIN # DOMAIN=www.example.com<br>
 tree -f -J . | grep ":\\"file" | python3 from_linux_json_tree.py | python3 look_for_and_exclude_html_copy.py --output_dir=../website_recovered_data/
 
 # And finally
